@@ -1,6 +1,6 @@
 package api.model;
 
-public class ErrorResponse {
+public class ErrorResponse{
     private String message;
     private Integer code;
 
