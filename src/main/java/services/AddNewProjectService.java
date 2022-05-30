@@ -3,12 +3,12 @@ package services;
 import api.model.Project.ProjectResponse;
 import com.crowdar.api.rest.Response;
 
-public class updateProjectService extends BaseService {
+public class AddNewProjectService extends BaseService {
 
 
-    public static Response put(String jsonName) {
+    public static Response post(String jsonName) {
 
-        return put(jsonName,ProjectResponse.class,setParamsUpdateProject());
+        return post(jsonName,ProjectResponse.class,setParamsAddNewProject());
     }
 
 

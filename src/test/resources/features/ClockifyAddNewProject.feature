@@ -1,67 +1,22 @@
-@prueba
-Feature: Project
+
+Feature: Add Project
   COMO usuario de Clockify
-  QUIERO ver los projectos
+  QUIERO Agregar un nuevo Proyecto
   PARA llevar un control de los mismos
 
-  Scenario Outline: Consulta Projects  resultado exitoso
-    Given un Api-Key valido
-    And un Worspace-id valido
+  Scenario Outline: Agrega un Proyecto Nuevo Exitoso
+    Given un Api-Key valido '<key>'
+    And un Worspace-id valido '<worspaceId>'
+    And projectId valido '<projectId>'
+    And un nombre del proyecto '<nombre>'
     When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
     And se obtuvo el status code <status>
+    Then se valida que el proyecto fue creado '<nombre>'
     Examples:
-      | operation | entity  | jsonName   | status |
-      | GET       | PROJECT | project/rq | 200    |
+      | operation | entity          | jsonName                | status | key                                              | worspaceId               | projectId                | nombre |
+      | POST      | ADD_NEW_PROJECT | project/rqAddNewProject | 201    | Y2UxNTAyNDYtMmIwYy00ZjM4LWI5NWYtZDFiOTYyYjI0NTkw | 628807ae3bf26277d6055a6e | 628808eeb5ab6e23f5414258 | Kiwi3  |
+      | POST      | ADD_NEW_PROJECT | project/rqAddNewProject | 201    | Y2UxNTAyNDYtMmIwYy00ZjM4LWI5NWYtZDFiOTYyYjI0NTkw | 628807ae3bf26277d6055a6e | 628808eeb5ab6e23f5414258 | i2     |
+      | POST      | ADD_NEW_PROJECT | project/rqAddNewProject | 201    | Y2UxNTAyNDYtMmIwYy00ZjM4LWI5NWYtZDFiOTYyYjI0NTkw | 628807ae3bf26277d6055a6e | 628808eeb5ab6e23f5414258 | mike    |
 
 
-  Scenario Outline: Consulta Project resultado erroneo,Api-Key Invalido.
-
-    Given X-Api-Key invalido
-    And un Worspace-id valido
-    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
-    And se obtuvo el status code <status>
-    Then se obtuvo el response esperado en <entity> con el <jsonResponse>
-    Examples:
-      | operation | entity | jsonName   | status | jsonResponse   |
-      | GET       | ERROR  | project/rq | 401    | project/rs_401 |
-
-
-  Scenario Outline: Consulta Project resultado erroneo, endpoint invalido.
-
-    Given un Api-Key valido
-    And un Worspace-id valido
-    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
-    And se obtuvo el status code <status>
-    Then se obtuvo el response esperado
-
-    Examples:
-      | operation | entity    | jsonName           | status |
-      | GET       | ERROR_404 | project/rqError404 | 404    |
-
-  Scenario Outline: Consulta Project por su ID resultado exitoso.
-
-    Given un Api-Key valido
-    And un Worspace-id valido
-    And project_id valido
-    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
-    And se obtuvo el status code <status>
-
-    Examples:
-      | operation | entity     | jsonName             | status |
-      | GET       | PROJECT_ID | project/rqProject_ID | 200    |
-
-
-  Scenario Outline: Modifica Nombre y color del proyecto resultado exitoso
-
-    Given un Api-Key valido
-    And un Worspace-id valido
-    And project_id valido
-    And un nombre del proyecto
-    And un color
-    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
-    And se obtuvo el status code <status>
-    Then se valida que el proyecto fue modificado
-    Examples:
-      | operation | entity         | jsonName                | status |
-      | PUT       | UPDATE_PROJECT | project/rqUpdateProject | 200    |
 

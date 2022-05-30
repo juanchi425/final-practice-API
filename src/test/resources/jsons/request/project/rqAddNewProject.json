@@ -4,16 +4,14 @@
     "X-Api-Key": "{{api-key}}",
     "Content-Type": "application/json"
   },
-  "body": {
-    "name": "{{nameProject}}",
+  "body":{
+    "name": "{{newProyect}}",
     "clientId": "",
     "isPublic": "false",
-    "hourlyRate": {
-      "amount": 3600
-    },
-    "color": "{{colorProject}}",
+    "color": "#f44336",
+    "note": "This is project's note",
     "billable": "true",
-    "archived": "true"
+    "public": false
   },
-  "endpoint":"/workspaces/{{workspace}}/projects/{{project_id}}"
+  "endpoint":"/workspaces/{{workspace}}/projects"
 }

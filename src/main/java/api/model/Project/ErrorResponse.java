@@ -1,6 +1,6 @@
-package api.model;
+package api.model.Project;
 
-public class ErrorResponse{
+public class ErrorResponse {
     private String message;
     private Integer code;
 

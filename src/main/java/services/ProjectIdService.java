@@ -3,7 +3,7 @@ package services;
 import api.model.Project.ProjectResponse;
 import com.crowdar.api.rest.Response;
 
-public class Project_IdService extends BaseService {
+public class ProjectIdService extends BaseService {
 
 
     public static Response get(String jsonName) {

@@ -1,6 +1,6 @@
 package api.model.Project;
 
-public class ErrorResponse_404 {
+public class ErrorResponse404 {
     private String timestamp;
     private Integer status;
     private String error;
