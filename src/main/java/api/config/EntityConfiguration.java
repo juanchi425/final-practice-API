@@ -62,6 +62,14 @@ public enum EntityConfiguration {
     GET_TIME_ENTRIES {
         @Override
         public Class<?> getEntityService() {return TimeEntriesService.class;}
+    },
+    ADD_TIME_ENTRIES {
+        @Override
+        public Class<?> getEntityService() {return AddTimeEntriesService.class;}
+    },
+    UPDATE_TIME_ENTRIES {
+        @Override
+        public Class<?> getEntityService() {return UpdateTimeEntriesService.class;}
     };
 
 
