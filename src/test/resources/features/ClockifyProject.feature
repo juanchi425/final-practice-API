@@ -1,4 +1,4 @@
-@prueba
+
 Feature: Project
   COMO usuario de Clockify
   QUIERO ver los projectos

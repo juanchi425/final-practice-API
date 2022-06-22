@@ -58,6 +58,10 @@ public enum EntityConfiguration {
         public Class<?> getEntityService() {
             return AddNewProjectService.class;
         }
+    },
+    GET_TIME_ENTRIES {
+        @Override
+        public Class<?> getEntityService() {return TimeEntriesService.class;}
     };
 
 
