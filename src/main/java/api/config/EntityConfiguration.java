@@ -70,6 +70,10 @@ public enum EntityConfiguration {
     UPDATE_TIME_ENTRIES {
         @Override
         public Class<?> getEntityService() {return UpdateTimeEntriesService.class;}
+    },
+    DELETE_TIME_ENTRIES {
+        @Override
+        public Class<?> getEntityService() {return DeleteTimeEntriesService.class;}
     };
 
 

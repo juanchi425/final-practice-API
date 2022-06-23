@@ -7,7 +7,7 @@
   "body": {
   "start": "2018-06-12T14:00:37Z",
   "billable": "true",
-  "description": "{{descripcion}}",
+  "description": "{{description}}",
   "projectId": "{{project_id}}",
   "taskId": "{{taskId}}",
   "end": "2018-06-12T14:01:41Z",

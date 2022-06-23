@@ -62,6 +62,11 @@ public class TimeEntriesSteps extends PageSteps {
 
     @And("una descripcion '(.*)'")
     public void unaDescripcionDescripcion(String descripcion) {
-        BaseService.DESCRIPCION.set(descripcion);
+        BaseService.DESCRIPTION.set(descripcion);
+    }
+
+    @And("Se verifica campos no vacios")
+    public void seVerificaCamposNoVacios() {
+        validaCamposNoVacios();
     }
 }

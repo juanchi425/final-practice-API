@@ -19,7 +19,7 @@ public class BaseService extends MethodsService {
     public static final ThreadLocal<String> H_INICIO = new ThreadLocal<String>();
     public static final ThreadLocal<String> H_FINAL = new ThreadLocal<String>();
     public static final ThreadLocal<String> TIME_ENTRIES_ID = new ThreadLocal<String>();
-    public static final ThreadLocal<String> DESCRIPCION = new ThreadLocal<String>();
+    public static final ThreadLocal<String> DESCRIPTION = new ThreadLocal<String>();
 
     protected static Map<String, String> setParams() {
         Map<String, String> params = new HashMap<String, String>();
@@ -57,16 +57,16 @@ public class BaseService extends MethodsService {
     protected static Map<String, String> setParamsGetTimeEntries(){
         Map<String, String> params = new HashMap<String, String>();
         params.put("base.url", PropertyManager.getProperty("base.api.url"));
-        params.put("api-key",API_KEY.get());
-        params.put("workspace",W_SPACE.get());
+        params.put("api-key",PropertyManager.getProperty("api.key"));
+        params.put("workspace",PropertyManager.getProperty("workspace"));
         params.put("userId",USER_ID.get());
         return params;
     }
     protected static Map<String, String> setParamsAddTimeEntries(){
         Map<String, String> params = new HashMap<String, String>();
         params.put("base.url", PropertyManager.getProperty("base.api.url"));
-        params.put("api-key",API_KEY.get());
-        params.put("workspace",W_SPACE.get());
+        params.put("api-key",PropertyManager.getProperty("api.key"));
+        params.put("workspace",PropertyManager.getProperty("workspace"));
         params.put("project_id",PROJECT_ID.get());
         params.put("taskId",TASK_ID.get());
         params.put("tagId",TAG_ID.get());
@@ -77,14 +77,22 @@ public class BaseService extends MethodsService {
 
     protected static Map<String, String> setParamsUpdateTimeEntries() {
         Map<String, String> params = new HashMap<String, String>();
-        params.put("base.url", PropertyManager.getProperty("base.api.url"));
-        params.put("api-key",API_KEY.get());
-        params.put("workspace",W_SPACE.get());
+        params.put("base.url",PropertyManager.getProperty("base.api.url"));
+        params.put("api-key",PropertyManager.getProperty("api.key"));
+        params.put("workspace",PropertyManager.getProperty("workspace"));
         params.put("timeEntriesId",TIME_ENTRIES_ID.get());
-        params.put("descripcion",DESCRIPCION.get());
+        params.put("description",DESCRIPTION.get());
         params.put("project_id",PROJECT_ID.get());
         params.put("taskId",TASK_ID.get());
         params.put("tagId",TAG_ID.get());
+        return params;
+    }
+    protected static Map<String, String> setParamsDeleteTimeEntries() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("base.url", PropertyManager.getProperty("base.api.url"));
+        params.put("api-key",PropertyManager.getProperty("api.key"));
+        params.put("workspace",PropertyManager.getProperty("workspace"));
+        params.put("timeEntriesId",TIME_ENTRIES_ID.get());
         return params;
     }
 }

@@ -3,6 +3,7 @@ package ar.validator;
 
 import api.model.Project.ErrorResponse404;
 import api.model.Project.ProjectResponse;
+import api.model.TimeEntries.CustomFieldValues;
 import api.model.TimeEntries.TimeEntryResponse;
 import api.model.workspaces.WorkspacesResponse;
 import com.crowdar.api.rest.APIManager;
@@ -37,4 +38,15 @@ public class TimeEntriesValidator {
         Assert.assertEquals(response.getTimeInterval().getStart().substring(11,16),H_inicio.substring(11,16));
         Assert.assertEquals(response.getTimeInterval().getEnd().substring(11,16),H_final.substring(11,16));
     }
+    public static void  validaCamposNoVacios(){
+        TimeEntryResponse response = (TimeEntryResponse) APIManager.getLastResponse().getResponse();
+        Assert.assertNotNull(response.getId(),"El campo Id esta vacio");
+        Assert.assertNotNull(response.getDescription(),"El campo Descripcion esta vacio");
+        Assert.assertNotNull(response.getTagIds(),"El campo TagsId esta vacio");
+        Assert.assertNotNull(response.getUserId(),"El campo UserId esta vacio");
+        Assert.assertNotNull(response.getProjectId(),"El campo ProjectId esta vacio");
+        Assert.assertNotNull(response.getTimeInterval(),"El campo TimeInvernal esta vacio");
+        Assert.assertNotNull(response.getWorkspaceId(),"El campo WorspaceId esta vacio");
+    }
 }
+
